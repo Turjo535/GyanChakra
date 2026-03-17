@@ -86,8 +86,12 @@ AUTH_USER_MODEL = 'GyanChakra_Users.GyanChakraUserModel'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('Database_Name'),
+        'USER': config('Database_User'),
+        'PASSWORD': config('Database_Password'),
+        'HOST': config('Database_Host'),
+        'PORT': config('Database_Port'),
     }
 }
 
