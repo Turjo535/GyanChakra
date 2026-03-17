@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/turjoinf/GyanChakra/
+    - /bin/cp -R * $DEPLOYPATH
+    - export HOME=/home/turjoinf
+    - source /home/turjoinf/virtualenv/GyanChakra/3.11/bin/activate && pip install -r $DEPLOYPATH/requirements.txt
+    - source /home/turjoinf/virtualenv/GyanChakra/3.11/bin/activate && cd $DEPLOYPATH && python manage.py migrate --noinput
+    - source /home/turjoinf/virtualenv/GyanChakra/3.11/bin/activate && cd $DEPLOYPATH && python manage.py collectstatic --noinput
